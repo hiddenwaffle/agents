@@ -1,6 +1,6 @@
 ---
 name: grimoire
-description: Create, edit, or review Markdown documents for Grimoire, including README, AGENTS.md, and CLAUDE.md files, or answer Grimoire rendering questions. Skip plan-mode plans, auto-memory notes, scratch files, and code-only work.
+description: Create or edit Markdown documents for Grimoire, including README, AGENTS.md, CLAUDE.md, and copilot-instructions.md files, or answer Grimoire rendering questions. Do not use merely to read, search, summarize, review content, or follow instructions in Markdown files. Skip plan-mode plans, auto-memory notes, scratch files, and code-only work.
 ---
 
 # Writing Markdown for Grimoire

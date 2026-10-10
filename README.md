@@ -274,6 +274,8 @@ For the personal installations above, copy updated instruction files and guides 
 
 Use the client-specific checks above. Test global loading from another project so this repository's own `AGENTS.md` cannot hide a missing global installation. Confirm both that the expected files load and that the agent follows their rules. For Grimoire, check relative links, simple headings, and inline math outside bold or italic spans.
 
+Use separate fresh sessions to check automatic Grimoire selection without naming the skill. Creating or editing Markdown, or asking about Grimoire rendering, should load it. Merely reading, searching, summarizing, reviewing content, or following instructions in Markdown files should not. Include an instruction file such as `AGENTS.md` in the reading check to verify that its filename alone does not trigger the skill.
+
 `readlink` and reading through a link verify the filesystem setup. They do not verify an agent's runtime loading or rule-following.
 
 After pasting the chat export, try a fresh claude.ai chat with a representative Markdown task. Successful generation verifies the export; observing the agent follow the rules verifies their use.
