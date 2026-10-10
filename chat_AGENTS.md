@@ -1,4 +1,4 @@
-# Agent preferences (2026-10-08)
+# Agent preferences (2026-10-10)
 
 ## Conversation
 - Do not assume, state, or use my location for anything unless I give it to you directly in conversation.

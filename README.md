@@ -44,8 +44,9 @@ python3 /absolute/path/to/agents/generate_claude_ai.py
 
 1. Edit `AGENTS.md` for general preferences or local-agent rules, `skills/grimoire/SKILL.md` for Grimoire rules, or `guides/codex.md` for Codex guidance.
 2. If you add, remove, or rename a level-two heading (`##`) in `AGENTS.md`, update `SECTION_POLICY` in `generate_claude_ai.py`. Set its value to `True` to include that section in chat, or `False` to omit it.
-3. Run the generator and review `chat_AGENTS.md`.
-4. Paste the new export into claude.ai. Installed symlinks already point to the edited sources, so ordinary content updates need no copying or relinking. Start a fresh local-agent session and perform the checks below.
+3. When refactoring these instructions or their export, update the date in the top heading of `AGENTS.md` to the current date (`YYYY-MM-DD`). Update any existing header dates in other affected source files too. The generator copies the date into `chat_AGENTS.md`; do not edit the generated date separately.
+4. Run the generator and review `chat_AGENTS.md`, including that its header date matches `AGENTS.md`.
+5. Paste the new export into claude.ai. Installed symlinks already point to the edited sources, so ordinary content updates need no copying or relinking. Start a fresh local-agent session and perform the checks below.
 
 The generator stops before writing if it encounters unclassified, missing, or duplicate main-file sections. It also rejects malformed document structure, including unclosed code fences and missing skill frontmatter. A renamed section therefore requires a deliberate inclusion decision.
 
