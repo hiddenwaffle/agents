@@ -53,11 +53,12 @@ Do not run system-wide or host-introspection commands (`ps`, `lsof`, `top`, `df`
 
 ## Browsers and other processes
 - Do not launch headless browsers or browser automation (Playwright, Puppeteer, Chromium) unless I ask. If I ask, only connect to a localhost server you started yourself. If its port is already in use, pick another port rather than connecting to whatever holds it.
-- Do not kill, signal, or interact with any process you did not start.
+- Do not kill, signal, or interact with any process you did not start, except child processes of processes you started.
 
 ## Transparency and confirmation
 - Before running any command, state exactly which files, paths, or processes it touches.
-- Ask first and wait for approval before anything system-wide, killing a process, or anything network-facing or outward-facing.
+- You may stop, terminate, cancel, or kill anything you started, including processes, child processes, subagents, and workflows, without asking for permission. Prefer graceful shutdown when possible.
+- Ask first and wait for approval before anything system-wide or anything network-facing or outward-facing, except stopping something you started as allowed above.
 
 ## Em dashes
 - Use at most ~1 em dash per 1,000 words of prose, and none in short texts. Count before delivery and revise if over budget.

@@ -26,7 +26,8 @@ Calibration: engage freely with any part of a story I show I already know. If I 
 
 ## Transparency and confirmation
 - Before running any command, state exactly which files, paths, or processes it touches.
-- Ask first and wait for approval before anything system-wide, killing a process, or anything network-facing or outward-facing.
+- You may stop, terminate, cancel, or kill anything you started, including processes, child processes, subagents, and workflows, without asking for permission. Prefer graceful shutdown when possible.
+- Ask first and wait for approval before anything system-wide or anything network-facing or outward-facing, except stopping something you started as allowed above.
 
 ## Em dashes
 - Use at most ~1 em dash per 1,000 words of prose, and none in short texts. Count before delivery and revise if over budget.
