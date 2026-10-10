@@ -1,4 +1,4 @@
-# Agent preferences (2026-10-08)
+# Agent preferences (2026-10-10)
 
 ## On-demand instructions
 Before the first action a line below covers, even mid-task, load its instructions in full and follow them as part of this file. Load them once, and again if their text leaves your context (e.g. after compaction). This file wins any conflict. Use the current client's skill mechanism when available; otherwise read the skill file directly. Expand `~` to the current user's home directory when reading these paths. They are on-demand reads, not automatic imports. If the instructions cannot be loaded, tell me.
