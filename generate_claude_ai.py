@@ -26,7 +26,7 @@ SECTION_POLICY = {
     "No host or system introspection": False,
     "Subagents, workflows, background agents": False,
     "Browsers and other processes": False,
-    "Transparency and confirmation": True,
+    "Transparency and confirmation": False,
     "Em dashes": True,
     "Verify by behaviour, not by state": True,
     "Emphasis around inline math": True,
