@@ -1,9 +1,9 @@
-# Agent preferences (2026-10-10)
+# Agent preferences (2026-10-12)
 
 ## On-demand instructions
 Before the first action a line below covers, even mid-task, load its instructions in full and follow them as part of this file. Load them once, and again if their text leaves your context (e.g. after compaction). This file wins any conflict. Use the current client's skill mechanism when available; otherwise read the skill file directly. Expand `~` to the current user's home directory when reading these paths. They are on-demand reads, not automatic imports. If the instructions cannot be loaded, tell me.
 
-- Creating or editing a Markdown document, or answering how Markdown renders in Grimoire (my Markdown viewer): invoke the `grimoire` skill at `~/.agents/skills/grimoire/SKILL.md`. This includes creating or editing instruction files such as AGENTS.md, CLAUDE.md, or copilot-instructions.md. Skip it for plan-mode plans, auto-memory notes, and `.scratch/` files. Do not load it merely to read, search, summarize, review content, or follow instructions in Markdown files.
+- Creating or editing Markdown written primarily for people (such as READMEs, guides, reports, or notes for me), or answering how Markdown renders in Grimoire (my Markdown viewer): invoke the `grimoire` skill at `~/.agents/skills/grimoire/SKILL.md`. For documents used by both people and agents, use the primary intended audience, not the filename or the possibility that a person might read it. Skip it for Markdown written primarily for agents, including instruction and skill files (AGENTS.md, CLAUDE.md, copilot-instructions.md, SKILL.md), agent handoffs, backlogs, and working notes for a later session. Also skip plan-mode plans, auto-memory notes, and `.scratch/` files. Do not load it merely to read, search, summarize, review content, or follow instructions in Markdown files.
 - Using Codex or OpenAI models (handing work to them or comparing them with you), or live browser playtesting, DevTools profiling, or cross-browser testing: read `~/.agents/guides/codex.md`.
 
 ## Conversation

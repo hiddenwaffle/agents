@@ -1,9 +1,13 @@
 ---
 name: grimoire
-description: Create or edit Markdown documents for Grimoire, including README, AGENTS.md, CLAUDE.md, and copilot-instructions.md files, or answer Grimoire rendering questions. Do not use merely to read, search, summarize, review content, or follow instructions in Markdown files. Skip plan-mode plans, auto-memory notes, scratch files, and code-only work.
+description: Create or edit Markdown written primarily for people, such as READMEs, guides, reports, or user-facing notes, or answer Grimoire rendering questions. For mixed audiences, use the primary intended audience, not the filename. Skip Markdown written primarily for agents, including instruction and skill files (AGENTS.md, CLAUDE.md, copilot-instructions.md, SKILL.md), agent handoffs, backlogs, and later-session working notes. Do not use merely to read, search, summarize, review content, or follow instructions in Markdown files. Skip plan-mode plans, auto-memory notes, scratch files, and code-only work.
 ---
 
 # Writing Markdown for Grimoire
+
+Apply these rules when creating or editing Markdown written primarily for people, such as READMEs, guides, reports, or notes for the user, or when answering Grimoire rendering questions. For documents used by both people and agents, use the primary intended audience, not the filename or the possibility that a person might read it.
+
+Skip Markdown written primarily for agents, including instruction and skill files (AGENTS.md, CLAUDE.md, copilot-instructions.md, SKILL.md), agent handoffs, backlogs, and working notes for a later session. Also skip plan-mode plans, auto-memory notes, scratch files, and code-only work. Merely reading, searching, summarizing, reviewing content, or following instructions in Markdown does not call for these rules. An explicit question about Grimoire rendering does, regardless of the document's audience.
 
 Grimoire is a *confined* Markdown viewer. A document's world is the folder(s) opened in the app, and nothing external or outside those folders loads. Author files so they render and link correctly there.
 

@@ -1,4 +1,4 @@
-# Agent preferences (2026-10-10)
+# Agent preferences (2026-10-12)
 
 ## Conversation
 - Do not assume, state, or use my location for anything unless I give it to you directly in conversation.
@@ -40,6 +40,10 @@ Do not report a change as done on the strength of a successful write or a matchi
 In replies and in files, never wrap `**bold**` or `*italic*` around a span that contains inline math (`$...$`). The delimiters fail to pair and literal stars leak into the output. Split the phrase so no emphasis run crosses a `$...$` boundary.
 
 ## Writing Markdown for Grimoire
+
+Apply these rules when creating or editing Markdown written primarily for people, such as READMEs, guides, reports, or notes for the user, or when answering Grimoire rendering questions. For documents used by both people and agents, use the primary intended audience, not the filename or the possibility that a person might read it.
+
+Skip Markdown written primarily for agents, including instruction and skill files (AGENTS.md, CLAUDE.md, copilot-instructions.md, SKILL.md), agent handoffs, backlogs, and working notes for a later session. Also skip plan-mode plans, auto-memory notes, scratch files, and code-only work. Merely reading, searching, summarizing, reviewing content, or following instructions in Markdown does not call for these rules. An explicit question about Grimoire rendering does, regardless of the document's audience.
 
 Grimoire is a *confined* Markdown viewer. A document's world is the folder(s) opened in the app, and nothing external or outside those folders loads. Author files so they render and link correctly there.
 

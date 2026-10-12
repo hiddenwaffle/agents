@@ -7,7 +7,7 @@ Personal instructions maintained in one place, with a modular version for local 
 | File | Purpose | Update directly? |
 | --- | --- | --- |
 | [AGENTS.md](AGENTS.md) | Main instructions and pointers to task-specific guidance | Yes |
-| [Grimoire skill](skills/grimoire/SKILL.md) | Markdown formatting rules shared by local and chat versions | Yes |
+| [Grimoire skill](skills/grimoire/SKILL.md) | Formatting rules for Markdown written primarily for people, shared by local and chat versions | Yes |
 | [Codex guide](guides/codex.md) | Guidance used by the local version when relevant | Yes |
 | `generate_claude_ai.py` | Selects chat sections and embeds the Grimoire rules | When generation or section selection needs to change |
 | [chat_AGENTS.md](chat_AGENTS.md) | Generated instructions for the claude.ai Account textbox | No; regenerate it |
@@ -76,11 +76,13 @@ git diff
 
 Review the source and generated changes together. Refresh any separately maintained copies using the procedure below, then perform the client-specific checks. Report which clients were actually exercised and which remain untested. Copilot being documented does not establish that it is installed or verified.
 
+When changing when Grimoire applies, keep the on-demand rule in `AGENTS.md`, the skill's frontmatter `description`, its opening scope paragraphs, and the verification cases below aligned. The description controls skill discovery; the body also carries the scope into the chat export, which omits both the on-demand rule and the frontmatter.
+
 The generator reads exactly two input files: the main instructions and the Grimoire `SKILL.md`. It does not scan `skills/` or `guides/`, follow Markdown links, or embed scripts and other skill resources. If Grimoire gains references to separate files, keep the chat export self-contained by adding the necessary text to its generation logic. A new skill intended for chat requires an explicit generator change; editing `SECTION_POLICY` alone only selects sections from the main file.
 
 ## What the chat export includes
 
-The export keeps conversation preferences, fictional-story rules, file and document preferences, em dash rules, verification by behaviour, and inline-math emphasis rules. It appends the Grimoire skill body, removing its YAML metadata and nesting its headings under the main document.
+The export keeps conversation preferences, fictional-story rules, file and document preferences, em dash rules, verification by behaviour, and inline-math emphasis rules. It appends the Grimoire skill body, including its audience restrictions, removing its YAML metadata and nesting its headings under the main document.
 
 It omits the local loading instructions, filesystem boundaries, host introspection, subagent rules, browser and process rules, the entire Transparency and confirmation section, and the Codex guide. The exact selection lives in `SECTION_POLICY`.
 
@@ -155,7 +157,7 @@ ln -s "$agent_source/AGENTS.md" "$HOME/.claude/CLAUDE.md"
 ln -s "$agent_source/skills/grimoire" "$HOME/.claude/skills/grimoire"
 ```
 
-The maintained source can be named `AGENTS.md` while the global file Claude opens is named `CLAUDE.md`. Claude Code supports symlinked skill folders. After source edits, start a fresh session and check `/context` for the global memory file and `/skills` for `grimoire`. Run a Markdown task using `/grimoire`, then try one without explicitly naming the skill to check automatic loading. See the [memory documentation](https://code.claude.com/docs/en/memory) and [skills documentation](https://code.claude.com/docs/en/skills).
+The maintained source can be named `AGENTS.md` while the global file Claude opens is named `CLAUDE.md`. Claude Code supports symlinked skill folders. After source edits, start a fresh session and check `/context` for the global memory file and `/skills` for `grimoire`. Create or edit a Markdown document primarily for people using `/grimoire`, then try the automatic-selection cases below without naming the skill. See the [memory documentation](https://code.claude.com/docs/en/memory) and [skills documentation](https://code.claude.com/docs/en/skills).
 
 ### Codex
 
@@ -168,7 +170,7 @@ ln -s "$agent_source/AGENTS.md" "$HOME/.codex/AGENTS.md"
 
 Codex reads global instructions from `~/.codex/AGENTS.md` and supports symlinked personal skills under `~/.agents/skills/`. If `CODEX_HOME` is set, use that directory for the main instruction link. A nonempty `AGENTS.override.md` there takes precedence over `AGENTS.md`; review an existing override before expecting the shared file to load. See the [instruction documentation](https://learn.chatgpt.com/docs/agent-configuration/agents-md) and [skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
-After editing sources, start a fresh Codex session, ask it to list the instruction sources it loaded, and confirm the global file is included. Ask it to use `$grimoire` for a Markdown task, then try a task without naming the skill to check automatic selection. Codex detects skill changes automatically; restart if a change does not appear.
+After editing sources, start a fresh Codex session, ask it to list the instruction sources it loaded, and confirm the global file is included. Ask it to use `$grimoire` to create or edit a Markdown document primarily for people, then try the automatic-selection cases below without naming the skill. Codex detects skill changes automatically; restart if a change does not appear.
 
 ### GitHub Copilot CLI
 
@@ -181,7 +183,7 @@ ln -s "$agent_source/AGENTS.md" "$HOME/.copilot/copilot-instructions.md"
 
 The shared step already installed the skill at `~/.agents/skills/grimoire`; keep that one link even if Codex also uses it. Copilot CLI documents `~/.copilot/copilot-instructions.md` for personal instructions and `~/.agents/skills/` as a personal skill location. If `COPILOT_HOME` is set, use it for the instruction destination instead of `~/.copilot`. See GitHub's [instruction documentation](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions) and [skill documentation](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
-After updating sources, start a fresh Copilot session and use `/instructions` to confirm the personal instruction file is enabled. For skill changes, use `/skills reload` and `/skills info grimoire`. Try a Markdown task with `/grimoire`, then without explicitly naming it. This repository's symlink setup has not been tested in Copilot. If its installed version does not discover the linked skill, place a copy of the skill directory at that destination and refresh the copy after source edits.
+After updating sources, start a fresh Copilot session and use `/instructions` to confirm the personal instruction file is enabled. For skill changes, use `/skills reload` and `/skills info grimoire`. Create or edit a Markdown document primarily for people with `/grimoire`, then try the automatic-selection cases below without naming the skill. This repository's symlink setup has not been tested in Copilot. If its installed version does not discover the linked skill, place a copy of the skill directory at that destination and refresh the copy after source edits.
 
 ### GitHub Copilot in editors and on GitHub
 
@@ -274,11 +276,23 @@ For the personal installations above, copy updated instruction files and guides 
 
 Use the client-specific checks above. Test global loading from another project so this repository's own `AGENTS.md` cannot hide a missing global installation. Confirm both that the expected files load and that the agent follows their rules. For Grimoire, check relative links, simple headings, and inline math outside bold or italic spans.
 
-Use separate fresh sessions to check automatic Grimoire selection without naming the skill. Creating or editing Markdown, or asking about Grimoire rendering, should load it. Merely reading, searching, summarizing, reviewing content, or following instructions in Markdown files should not. Include an instruction file such as `AGENTS.md` in the reading check to verify that its filename alone does not trigger the skill.
+Use separate fresh sessions to check automatic Grimoire selection. Do not explicitly invoke the skill. Judge documents by their primary intended audience, not their filename or the possibility that a person might read them.
+
+| Task | Expected automatic selection |
+| --- | --- |
+| Create or edit a README, guide, report, or note primarily for people | Load Grimoire |
+| Create or edit agent instructions or skill files, such as `AGENTS.md`, `CLAUDE.md`, `copilot-instructions.md`, or `SKILL.md` | Skip Grimoire |
+| Create or edit an agent handoff, backlog, or working notes for a later session | Skip Grimoire |
+| Create or edit a document used by both people and agents, such as a roadmap or art specification | Load only when primarily written for people |
+| Create or edit plan-mode plans, auto-memory notes, or `.scratch/` files | Skip Grimoire |
+| Merely read, search, summarize, review content, or follow instructions in Markdown, including `AGENTS.md` | Skip Grimoire |
+| Ask specifically how Markdown renders in Grimoire, regardless of its audience | Load Grimoire |
+
+Test both primary audiences for the mixed-document case, using the same filename in separate sessions. This checks that purpose drives selection. Record observed skill loading separately from the expected results; an edited rule alone does not verify selection.
 
 `readlink` and reading through a link verify the filesystem setup. They do not verify an agent's runtime loading or rule-following.
 
-After pasting the chat export, try a fresh claude.ai chat with a representative Markdown task. Successful generation verifies the export; observing the agent follow the rules verifies their use.
+After pasting the chat export, try fresh claude.ai chats with Markdown tasks primarily for people and primarily for agents. Grimoire formatting rules should apply only to the former, unless the task explicitly asks about Grimoire rendering. Successful generation verifies the export; observing the agent follow the rules verifies their use.
 
 ## Generator options
 
