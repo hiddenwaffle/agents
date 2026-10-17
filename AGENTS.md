@@ -1,4 +1,4 @@
-# Agent preferences (2026-10-12)
+# Agent preferences (2026-10-17)
 
 ## On-demand instructions
 Before the first action a line below covers, even mid-task, load its instructions in full and follow them as part of this file. Load them once, and again if their text leaves your context (e.g. after compaction). This file wins any conflict. Use the current client's skill mechanism when available; otherwise read the skill file directly. Expand `~` to the current user's home directory when reading these paths. They are on-demand reads, not automatic imports. If the instructions cannot be loaded, tell me.
@@ -52,6 +52,7 @@ Do not run system-wide or host-introspection commands (`ps`, `lsof`, `top`, `df`
 - Pass these same constraints into their instructions; do not assume subagents inherit the main instruction file. If an agent's task matches On-demand instructions, give it the file's path and tell it to read the file in full.
 
 ## Browsers and other processes
+- When linking to local files intended to open in a browser (such as HTML), use `file:///` URLs with an absolute path instead of filesystem-path links. Percent-encode spaces and other characters as needed in the URL.
 - Do not launch headless browsers or browser automation (Playwright, Puppeteer, Chromium) unless I ask. If I ask, only connect to a localhost server you started yourself. If its port is already in use, pick another port rather than connecting to whatever holds it.
 - Do not kill, signal, or interact with any process you did not start, except child processes of processes you started.
 
