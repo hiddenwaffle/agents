@@ -84,7 +84,7 @@ The generator reads exactly two input files: the main instructions and the Grimo
 
 The export keeps conversation preferences, fictional-story rules, file and document preferences, em dash rules, verification by behaviour, and inline-math emphasis rules. It appends the Grimoire skill body, including its audience restrictions, removing its YAML metadata and nesting its headings under the main document.
 
-It omits the local loading instructions, filesystem boundaries, host introspection, subagent rules, browser and process rules, the entire Transparency and confirmation section, and the Codex guide. The exact selection lives in `SECTION_POLICY`.
+It omits the local loading instructions, filesystem boundaries, host introspection, subagent rules, reply link formatting, browser and process rules, the entire Transparency and confirmation section, and the Codex guide. The exact selection lives in `SECTION_POLICY`.
 
 The embedded Grimoire text takes context in chat, but the export can be pasted as one block without installing a separate skill.
 

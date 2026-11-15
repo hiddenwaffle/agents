@@ -25,6 +25,7 @@ SECTION_POLICY = {
     "Scope and filesystem": False,
     "No host or system introspection": False,
     "Subagents, workflows, background agents": False,
+    "Links and paths in replies": False,
     "Browsers and other processes": False,
     "Transparency and confirmation": False,
     "Em dashes": True,
